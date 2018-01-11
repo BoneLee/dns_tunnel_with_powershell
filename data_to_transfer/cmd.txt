@@ -1,0 +1,537 @@
+PS C:\Users\l00379637\dns_tunnel_with_powershell> ls
+
+
+    目录: C:\Users\l00379637\dns_tunnel_with_powershell
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        2018/1/11     16:45                data_to_transfer
+-a----        2018/1/11     10:10             87 data.txt
+-a----        2018/1/11     10:05           1133 README.md
+-a----        2018/1/11     16:28            956 trans_trunk.ps1
+-a----        2018/1/11     16:15           1680 tunning_with_powershell.py
+
+
+PS C:\Users\l00379637\dns_tunnel_with_powershell> pwd
+
+Path
+----
+C:\Users\l00379637\dns_tunnel_with_powershell
+
+
+PS C:\Users\l00379637\dns_tunnel_with_powershell> date
+2018年01月11日 16:49:16
+PS C:\Users\l00379637\dns_tunnel_with_powershell> lscpu
+lscpu : 无法将lscpu项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。
+所在位置 行:1 字符: 1
++ lscpu
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (lscpu:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\l00379637\dns_tunnel_with_powershell> ipconfig.exe
+
+Windows IP 配置
+
+
+无线局域网适配器 本地连接* 2:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开连接
+   连接特定的 DNS 后缀 . . . . . . . :
+
+以太网适配器 以太网:
+
+   连接特定的 DNS 后缀 . . . . . . . :
+   本地链接 IPv6 地址. . . . . . . . : fe80::dda3:8d48:dcfd:caa9%5
+   IPv4 地址 . . . . . . . . . . . . : 192.168.102.190
+   子网掩码  . . . . . . . . . . . . : 255.255.0.0
+   默认网关. . . . . . . . . . . . . : 192.168.0.1
+
+无线局域网适配器 WLAN:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开连接
+   连接特定的 DNS 后缀 . . . . . . . :
+
+以太网适配器 蓝牙网络连接:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开连接
+   连接特定的 DNS 后缀 . . . . . . . :
+
+隧道适配器 本地连接* 4:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开连接
+   连接特定的 DNS 后缀 . . . . . . . :
+PS C:\Users\l00379637\dns_tunnel_with_powershell> get-service
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  AJRouter           AllJoyn Router Service
+Stopped  ALG                Application Layer Gateway Service
+Stopped  AppIDSvc           Application Identity
+Running  Appinfo            Application Information
+Running  Apple Mobile De... Apple Mobile Device Service
+Stopped  AppReadiness       App Readiness
+Stopped  AppXSvc            AppX Deployment Service (AppXSVC)
+Running  AudioEndpointBu... Windows Audio Endpoint Builder
+Running  Audiosrv           Windows Audio
+Stopped  AxInstSV           ActiveX Installer (AxInstSV)
+Stopped  BDESVC             BitLocker Drive Encryption Service
+Running  BFE                Base Filtering Engine
+Running  BITS               Background Intelligent Transfer Ser...
+Running  Bonjour Service    Bonjour 服务
+Running  BrokerInfrastru... Background Tasks Infrastructure Ser...
+Stopped  Browser            Computer Browser
+Stopped  BthHFSrv           Bluetooth Handsfree Service
+Running  bthserv            蓝牙支持服务
+Running  CDPSvc             连接设备平台服务
+Running  CDPUserSvc_5bbc8   连接设备平台用户服务_5bbc8
+Stopped  CertPropSvc        Certificate Propagation
+Running  ClickToRunSvc      Microsoft Office ClickToRun Service
+Stopped  ClipSVC            Client License Service (ClipSVC)
+Stopped  COMSysApp          COM+ System Application
+Running  CoreMessagingRe... CoreMessaging
+Stopped  cphs               Intel(R) Content Protection HECI Se...
+Stopped  cplspcon           Intel(R) Content Protection HDCP Se...
+Running  CryptSvc           Cryptographic Services
+Running  DcomLaunch         DCOM Server Process Launcher
+Running  DDVCollectorSvcApi Dell Data Vault Service API
+Running  DDVDataCollector   Dell Data Vault Collector
+Running  DDVRulesProcessor  Dell Data Vault Processor
+Stopped  defragsvc          Optimize drives
+Running  Dell Customer C... Dell Customer Connect
+Running  Dell Foundation... Dell Foundation Services
+Running  Dell Help & Sup... Dell Help & Support
+Stopped  DellDigitalDeli... Dell Digital Delivery Service
+Running  DellUpdate         Dell Update Service
+Running  DeviceAssociati... Device Association Service
+Stopped  DeviceInstall      Device Install Service
+Stopped  DevicesFlowUser... DevicesFlow_5bbc8
+Stopped  DevQueryBroker     DevQuery Background Discovery Broker
+Running  Dhcp               DHCP Client
+Stopped  diagnosticshub.... Microsoft (R) 诊断中心标准收集器服务
+Running  DiagTrack          Connected User Experiences and Tele...
+Stopped  DmEnrollmentSvc    设备管理注册服务
+Stopped  dmwappushservice   dmwappushsvc
+Running  Dnscache           DNS Client
+Stopped  DoSvc              Delivery Optimization
+Stopped  dot3svc            Wired AutoConfig
+Running  DPS                Diagnostic Policy Service
+Stopped  DsmSvc             Device Setup Manager
+Running  DsSvc              Data Sharing Service
+Running  DusmSvc            数据使用量
+Running  EapHost            Extensible Authentication Protocol
+Stopped  EFS                Encrypting File System (EFS)
+Stopped  embeddedmode       嵌入模式
+Stopped  EntAppSvc          Enterprise App Management Service
+Running  EventLog           Windows Event Log
+Running  EventSystem        COM+ Event System
+Running  EvtEng             Intel(R) PROSet/Wireless Event Log
+Stopped  Fax                Fax
+Stopped  fdPHost            Function Discovery Provider Host
+Stopped  FDResPub           Function Discovery Resource Publica...
+Stopped  fhsvc              File History Service
+Stopped  FlexNet Licensi... FlexNet Licensing Service
+Running  FontCache          Windows Font Cache Service
+Running  FontCache3.0.0.0   Windows Presentation Foundation Fon...
+Stopped  FrameServer        Windows Camera Frame Server
+Running  FxService          Foxit Service
+Stopped  gpsvc              Group Policy Client
+Running  HaoZipSvc          好压核心服务
+Running  hidserv            Human Interface Device Service
+Stopped  HomeGroupProvider  HomeGroup Provider
+Stopped  HvHost             HV 主机服务
+Running  IAStorDataMgrSvc   Intel(R) Rapid Storage Technology
+Running  ibtsiva            Intel Bluetooth Service
+Stopped  icssvc             Windows 移动热点服务
+Running  igfxCUIService2... Intel(R) HD Graphics Control Panel ...
+Stopped  IKEEXT             IKE and AuthIP IPsec Keying Modules
+Stopped  Intel(R) Capabi... Intel(R) Capability Licensing Servi...
+Running  Intel(R) Securi... Intel(R) Security Assist
+Stopped  Intel(R) WiDi SAM  Intel(R) WiDi Software Asset Manager
+Running  IntelUSBoverIP     IntelUSBoverIP
+Running  iphlpsvc           IP Helper
+Running  iPod Service       iPod 服务
+Stopped  IpxlatCfgSvc       IP 转换配置服务
+Stopped  irmon              Infrared monitor service
+Running  IRMTService        Intel(R) Ready Mode Technology
+Stopped  isaHelperSvc       Intel(R) Security Assist Helper
+Running  jhi_service        Intel(R) Dynamic Application Loader...
+Running  KeyIso             CNG Key Isolation
+Stopped  KtmRm              KtmRm for Distributed Transaction C...
+Running  LanmanServer       Server
+Running  LanmanWorkstation  Workstation
+Running  lfsvc              Geolocation Service
+Running  LicenseManager     Windows 许可证管理器服务
+Stopped  lltdsvc            Link-Layer Topology Discovery Mapper
+Running  lmhosts            TCP/IP NetBIOS Helper
+Running  LMS                Intel(R) Management and Security Ap...
+Running  LSM                Local Session Manager
+Stopped  MapsBroker         Downloaded Maps Manager
+Stopped  MessagingServic... MessagingService_5bbc8
+Stopped  MozillaMaintenance Mozilla Maintenance Service
+Running  MpsSvc             Windows Firewall
+Stopped  MSDTC              Distributed Transaction Coordinator
+Stopped  MSiSCSI            Microsoft iSCSI Initiator Service
+Stopped  msiserver          Windows Installer
+Stopped  MyWiFiDHCPDNS      Wireless PAN DHCP Server
+Stopped  NaturalAuthenti... 自然身份验证
+Stopped  NcaSvc             Network Connectivity Assistant
+Running  NcbService         Network Connection Broker
+Stopped  NcdAutoSetup       Network Connected Devices Auto-Setup
+Stopped  Netlogon           Netlogon
+Stopped  Netman             Network Connections
+Running  netprofm           Network List Service
+Stopped  NetSetupSvc        Network Setup Service
+Stopped  NetTcpPortSharing  Net.Tcp Port Sharing Service
+Stopped  NgcCtnrSvc         Microsoft Passport Container
+Stopped  NgcSvc             Microsoft Passport
+Running  NlaSvc             Network Location Awareness
+Running  nsi                Network Store Interface Service
+Running  NVDisplay.Conta... NVIDIA Display Container LS
+Running  OneSyncSvc_5bbc8   同步主机_5bbc8
+Running  OSDSrv             OSDSrv
+Stopped  ose                Office  Source Engine
+Stopped  p2pimsvc           Peer Networking Identity Manager
+Stopped  p2psvc             Peer Networking Grouping
+Running  pcas               Alipay payment client security service
+Running  PcaSvc             Program Compatibility Assistant Ser...
+Stopped  PerfHost           Performance Counter DLL Host
+Stopped  PhoneSvc           Phone Service
+Running  PimIndexMainten... Contact Data_5bbc8
+Stopped  pla                Performance Logs & Alerts
+Running  PlugPlay           Plug and Play
+Stopped  PNRPAutoReg        PNRP Machine Name Publication Service
+Stopped  PNRPsvc            Peer Name Resolution Protocol
+Running  PolicyAgent        IPsec Policy Agent
+Running  Power              Power
+Stopped  PrintNotify        Printer Extensions and Notifications
+Running  Product Registr... Product Registration
+Running  ProfSvc            User Profile Service
+Running  QPCore             QPCore Service
+Stopped  QWAVE              Quality Windows Audio Video Experience
+Stopped  RasAuto            Remote Access Auto Connection Manager
+Stopped  RasMan             Remote Access Connection Manager
+Running  RegSrvc            Intel(R) PROSet/Wireless Registry S...
+Stopped  RemoteAccess       Routing and Remote Access
+Stopped  RemoteRegistry     Remote Registry
+Stopped  RetailDemo         零售演示服务
+Stopped  RmSvc              无线电管理服务
+Running  RpcEptMapper       RPC Endpoint Mapper
+Stopped  RpcLocator         Remote Procedure Call (RPC) Locator
+Running  RpcSs              Remote Procedure Call (RPC)
+Running  RtkAudioService    Realtek Audio Service
+Running  SamSs              Security Accounts Manager
+Stopped  SCardSvr           Smart Card
+Stopped  ScDeviceEnum       Smart Card Device Enumeration Service
+Running  Schedule           Task Scheduler
+Stopped  SCPolicySvc        Smart Card Removal Policy
+Stopped  SDRSVC             Windows 备份
+Running  secbizsrv          Alipay security business service
+Stopped  seclogon           Secondary Logon
+Running  SecurityHealthS... Windows Defender 安全中心服务
+Stopped  SEMgrSvc           付款和 NFC/SE 管理器
+Running  SENS               System Event Notification Service
+Stopped  SensorDataService  Sensor Data Service
+Stopped  SensorService      Sensor Service
+Stopped  SensrSvc           Sensor Monitoring Service
+Stopped  SessionEnv         Remote Desktop Configuration
+Stopped  SharedAccess       Internet Connection Sharing (ICS)
+Running  ShellHWDetection   Shell Hardware Detection
+Stopped  shpamsvc           Shared PC Account Manager
+Stopped  smphost            Microsoft Storage Spaces SMP
+Stopped  SmsRouter          Microsoft Windows SMS 路由器服务。
+Stopped  SNMPTRAP           SNMP Trap
+Stopped  SogouSvc           搜狗拼音输入法基础服务
+Stopped  spectrum           Windows Perception 服务
+Running  Spooler            Print Spooler
+Stopped  sppsvc             Software Protection
+Running  SSDPSRV            SSDP Discovery
+Stopped  SstpSvc            Secure Socket Tunneling Protocol Se...
+Running  StateRepository    State Repository Service
+Stopped  stisvc             Windows Image Acquisition (WIA)
+Running  StorSvc            Storage Service
+Running  SupportAssistAgent Dell SupportAssist Agent
+Stopped  svsvc              Spot Verifier
+Stopped  swprv              Microsoft Software Shadow Copy Prov...
+Running  SysMain            Superfetch
+Running  SystemEventsBroker System Events Broker
+Stopped  TabletInputService Touch Keyboard and Handwriting Pane...
+Stopped  TapiSrv            Telephony
+Running  TeamViewer         TeamViewer 12
+Running  TermService        Remote Desktop Services
+Running  Themes             Themes
+Stopped  TieringEngineSe... Storage Tiers Management
+Running  tiledatamodelsvc   Tile Data model server
+Running  TimeBrokerSvc      Time Broker
+Running  TokenBroker        TokenBroker
+Running  TrkWks             Distributed Link Tracking Client
+Stopped  TrustedInstaller   Windows Modules Installer
+Stopped  tzautoupdate       自动时区更新程序
+Stopped  UI0Detect          Interactive Services Detection
+Stopped  UmRdpService       Remote Desktop Services UserMode Po...
+Running  UnistoreSvc_5bbc8  User Data Storage_5bbc8
+Stopped  upnphost           UPnP Device Host
+Running  UserDataSvc_5bbc8  User Data Access_5bbc8
+Running  UserManager        User Manager
+Stopped  UsoSvc             Update Orchestrator Service
+Running  VaultSvc           Credential Manager
+Stopped  vds                Virtual Disk
+Stopped  vmicguestinterface Hyper-V Guest Service Interface
+Stopped  vmicheartbeat      Hyper-V Heartbeat Service
+Stopped  vmickvpexchange    Hyper-V Data Exchange Service
+Stopped  vmicrdv            Hyper-V 远程桌面虚拟化服务
+Stopped  vmicshutdown       Hyper-V Guest Shutdown Service
+Stopped  vmictimesync       Hyper-V Time Synchronization Service
+Stopped  vmicvmsession      Hyper-V PowerShell Direct Service
+Stopped  vmicvss            Hyper-V 卷影复制请求程序
+Stopped  VSS                Volume Shadow Copy
+Stopped  W32Time            Windows Time
+Stopped  WalletService      WalletService
+Running  WavesSysSvc        Waves Audio Services
+Stopped  wbengine           Block Level Backup Engine Service
+Stopped  WbioSrvc           Windows Biometric Service
+Running  Wcmsvc             Windows Connection Manager
+Stopped  wcncsvc            Windows Connect Now - Config Registrar
+Running  WdiServiceHost     Diagnostic Service Host
+Stopped  WdiSystemHost      Diagnostic System Host
+Running  WdNisSvc           Windows Defender Antivirus Network ...
+Stopped  WebClient          WebClient
+Stopped  Wecsvc             Windows Event Collector
+Stopped  WEPHOSTSVC         Windows Encryption Provider Host Se...
+Stopped  wercplsupport      Problem Reports and Solutions Contr...
+Stopped  WerSvc             Windows Error Reporting Service
+Stopped  WFDSConMgrSvc      WLAN Direct 服务连接管理器服务
+Stopped  WiaRpc             Still Image Acquisition Events
+Running  WinDefend          Windows Defender Antivirus Service
+Running  WinHttpAutoProx... WinHTTP Web Proxy Auto-Discovery Se...
+Running  Winmgmt            Windows Management Instrumentation
+Stopped  WinRM              Windows Remote Management (WS-Manag...
+Stopped  wisvc              Windows 预览体验服务
+Running  WlanSvc            WLAN AutoConfig
+Running  wlidsvc            Microsoft Account Sign-in Assistant
+Stopped  wlpasvc            LPA 服务
+Running  wmiApSrv           WMI Performance Adapter
+Stopped  WMPNetworkSvc      Windows Media Player Network Sharin...
+Stopped  workfolderssvc     Work Folders
+Stopped  WPDBusEnum         Portable Device Enumerator Service
+Running  WpnService         Windows 推送通知系统服务
+Running  WpnUserService_... Windows 推送通知用户服务_5bbc8
+Stopped  wpscloudsvr        WPS Office Cloud Service
+Running  wscsvc             Security Center
+Running  WSearch            Windows Search
+Stopped  wuauserv           Windows Update
+Running  wudfsvc            Windows Driver Foundation - User-mo...
+Stopped  WwanSvc            WWAN AutoConfig
+Stopped  xbgm               Xbox Game Monitoring
+Stopped  XblAuthManager     Xbox Live 身份验证管理器
+Stopped  XblGameSave        Xbox Live 游戏保存
+Stopped  XboxGipSvc         Xbox Accessory Management Service
+Stopped  XboxNetApiSvc      Xbox Live 网络服务
+Running  ZeroConfigService  Intel(R) PROSet/Wireless Zero Confi...
+
+
+PS C:\Users\l00379637\dns_tunnel_with_powershell> get-process
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+    168      13     2540       7944       0.14   6448   1 aliwssv
+    218      20     3728      10848              3540   0 AppleMobileDeviceService
+    448      31    14456      29100       0.50  10760   1 ApplicationFrameHost
+    584      51    39308      46392              8948   0 appupdater
+    184       9     6832       7368       0.11   5548   1 bash
+    140       9     1592       7208       0.02   3648   1 ChsIME
+    129      10     5788       7012       0.11   1880   1 conhost
+    100       7     1312       5016              4684   0 conhost
+    101       7     5400       5260       0.00   6456   1 conhost
+    127      10     5704       6896       0.00   9260   1 conhost
+    541      44    24992      37740      86.39  11324   1 conhost
+    585      30    15332      36108      19.09  13480   1 conhost
+    837      25     2244       6120               552   0 csrss
+    767      23     2660       6108               664   1 csrss
+    213      20     7516       2680      23.47   7248   1 Dandelion
+    768      38    21124      36180              1852   0 DCCService
+    141       8     1620       7168             10808   0 DDVCollectorSvcApi
+    334      21    22420      19296             10564   0 DDVDataCollector
+    260      17    17200      12784              2272   0 DDVRulesProcessor
+   1195      43    33912      37800              8756   0 DellUpService
+    712      48    45976      49952       1.44   8544   1 DellUpTray
+    363      34    30048      17164       0.42   5964   1 DFS.Common.Agent
+    897      76    51172      53700              3380   0 DFSSvc
+    176      16     3096       8936              5792   0 dllhost
+    149       9     2356       9068       0.14   7580   1 dllhost
+    639      34    73184      65820              1032   1 dwm
+    335      17     4884      13036              3596   0 EvtEng
+   2883     171    99372     147364     239.36   4908   1 explorer
+    510      26    62104      74784   1,068.47   9468   1 firefox
+    607      48    97460     107272      32.11   9496   1 firefox
+   1676     155   503564     406460   1,743.30   9524   1 firefox
+    963     122   404256     277572     900.23   9920   1 firefox
+    700      75   185356     181916     248.75  10412   1 firefox
+    754      89   374880     299720   2,156.59  11364   1 firefox
+    653      65   196364     191648     222.91  11624   1 firefox
+     44       9     5904      22668               968   1 fontdrvhost
+     44       7     2468       3248               976   0 fontdrvhost
+    305      20     4652      14708              3852   0 FoxitProtect
+    168      10     3252       8244              2200   0 full_dsc_6875_668_64_02
+     94       6     1680       4732       0.03   4696   1 git-bash
+    345      18     4732      15224              5552   0 HaoZipSvc
+    443      37    30616      33692              1552   0 IAStorDataMgrSvc
+    345      27    22468      28952       0.98   7636   1 IAStorIcon
+     84       5     1232       4136              2928   0 ibtsiva
+      0       0       52          8                 0   0 Idle
+    185      10     1944       8176              1992   0 igfxCUIService
+    209      14     3444      11660       0.19   5872   1 igfxEM
+    129      10     2572       8020       0.03   6296   1 igfxHK
+    173      12     2916       9884       0.19   6300   1 igfxTray
+    141       9     2360       7384              8028   0 iPodService
+    224      11     2512       9624              3396   0 IRMTService
+    512      22    13864      17336             10784   0 isa
+    273      20     4432      13340       0.22   8956   1 iTunesHelper
+    130      10     1380       6116              4216   0 jhi_service
+    259      15     3552      10452              9060   0 LMS
+   1475      22     6628      13816               828   0 lsass
+   1113     112    41816      39544              9076   0 MDLCSvc
+    147      13     1764       5920              3488   0 mDNSResponder
+      0       0     1108     398676              3604   0 Memory Compression
+    435      32    16704      33716       1.78  10800   1 mintty
+    144      10     1920       8524       0.11   7128   1 MSASCuiL
+    840      73   158836     135352              3408   0 MsMpEng
+    283      22    17696       6968              2616   0 NisSrv
+    464      31    11348      27308       6.52   9396   1 notepad
+    416      32    14356      24836      11.05   8920   1 notepad++
+    122       9     4104       6608       0.05  11156   1 nvapiw
+    292      23     4296      10304       0.91   8140   1 NvBackend
+    223      12     4340      10080              3372   0 NVDisplay.Container
+    282      17     4288      11416       0.36   8032   1 nvtray
+    399      22    10356      20632              4172   1 nvxdsync
+    585      26    26580      30072              3672   0 OfficeClickToRun
+    269      16     2784      10812       0.03   3104   1 OSDApp
+    131       8     1244       5496              3584   0 OSDSrv
+    437      22     5112      15328              3532   0 pcas
+    507      29    62604      49380       1.38   2504   1 powershell
+    866      42    70060     102992      11.61   6212   1 powershell
+    222      28    25564      16304              5704   0 PresentationFontCache
+    863     105    50724      48800             10616   0 PRSvc
+    209      14     8128      10312      19.73   7520   1 pythonw
+    525      37    26236      40724       1.63  12652   1 pythonw
+   1820     419   159548     128760     113.14  12664   1 QQ
+    303      39   103628      57812     245.33  11268   1 QQExternal
+    285      31    66092      28592      92.47  13472   1 QQExternal
+    433      29    17432      17180              3704   0 QQProtect
+    281      14     6048      10060              2300   1 RAVBg64
+    280      14     5720       9392              2320   1 RAVBg64
+    280      14     5944       9732              2336   1 RAVBg64
+    310      16     9396      10860       0.28   5216   1 RAVBg64
+    288      14     5792        584       0.16   5648   1 RAVBg64
+    162      10     1996       9084              3340   0 RegSrvc
+    160       9     1808       7328              2264   0 RtkAudioService64
+    366      15     4752      12196       0.20   6152   1 RtkNGUI64
+    609      34    15152      41912      24.91   5764   1 RuntimeBroker
+    773      65    47952      38384              1092   0 SearchIndexer
+   1302      93    96504      89088       5.78   7192   1 SearchUI
+    263      16     4812      10820              3524   0 secbizsrv
+    322      15     5024      11480              3176   0 SecurityHealthService
+    667      10     5128       8204               812   0 services
+    546      33    21628       7352       3.92  11464   1 Shadowsocks
+   1325      53    43428      72160       2.73   7008   1 ShellExperienceHost
+    516      17     6736      24208       3.66   4500   1 sihost
+    258      13     4548       8948       0.13   8088   1 SkypeHost
+     52       3      504        904               404   0 smss
+   7252      33    14652      21796      73.94   9816   1 SogouCloud
+    342      22     5716      23968       0.16   6216   1 SogouImeBroker
+    322      21     5980      28396       0.11    844   1 SogouImeLoader
+    417      23     5968      11740              2648   0 spoolsv
+    139      12     1996       8100       0.45  11304   1 ss_privoxy
+    908      78   163664      66276             11148   0 SupportAssistAgent
+   1113      19     7336      13880               504   0 svchost
+    262       8     2344       6032               660   0 svchost
+    377      20     6360      25516       4.19    676   1 svchost
+    212      13     3520      11428       0.39    824   1 svchost
+     70       5      932       3588               920   0 svchost
+   1069      23    12364      23736               944   0 svchost
+    208      13     2392      10040              1132   0 svchost
+    169      11     2116       8608              1164   0 svchost
+    105      10     1508       5452              1300   0 svchost
+    143       9     1944      10392              1308   0 svchost
+    137       9     3360      10104              1368   0 svchost
+    418      15    12268      12292              1456   0 svchost
+    402      18     6376      13816              1480   0 svchost
+    320      23     5732      17988              1492   0 svchost
+    209      12     2368       9456              1508   0 svchost
+    192       9     2100       8188              1604   0 svchost
+    145      35     6536       6928              1664   0 svchost
+    186      10     2168       7044              1708   0 svchost
+    342      16     4248       9684              1764   0 svchost
+    102       7     1264       5516              1784   0 svchost
+    236       7     1304       5604              1820   0 svchost
+    158       9     1988       6760              1828   0 svchost
+    151      12     1836       7632              1928   0 svchost
+    391      12     3176       8764              1968   0 svchost
+    166      10     1848       7008              2052   0 svchost
+    151      10     2068      13376              2060   0 svchost
+   1407      18    18364      19124              2140   0 svchost
+    300      12     2888      11064              2208   0 svchost
+    211      14     4284       8788              2360   0 svchost
+    118      10     1640       5856              2368   0 svchost
+    433      19     4192      12632              2376   0 svchost
+    428      21     6492      16164              2536   0 svchost
+    472      36    14132      16224              2572   0 svchost
+    222      13     2532      12276              2600   0 svchost
+    332      16     4220      13952              2656   0 svchost
+    166      11     1960       7516              2720   0 svchost
+    204      11     3692       7460              2896   0 svchost
+    556      22     6840      21076              2904   0 svchost
+    309      13     3840      10068              2912   0 svchost
+    251      25     3648      12152              2936   0 svchost
+    107       7     1384       5908              2944   0 svchost
+    311      23    25304      20472              2960   0 svchost
+    199      15    82468      89732              2984   0 svchost
+    109       7     1256       5356              3016   0 svchost
+    352      19     4940      17624              3052   0 svchost
+     88       7     1292       5064              3236   0 svchost
+    506      22     4220      14040              3364   0 svchost
+    225      12     2852      11852              3460   0 svchost
+    207      16     2460       8864              4072   0 svchost
+    135      11     1804       6316              4488   0 svchost
+    242      18     3792      16512              5440   0 svchost
+    409      18     4016      14876              5720   0 svchost
+    427      25     5076      16896       0.20   6716   1 svchost
+    120       7     1340       5164              7392   0 svchost
+    164      12     2312      13424              7736   0 svchost
+    418      28     9628      15336              8160   0 svchost
+    181      11     2180       8008              8976   0 svchost
+    189      15     2020       6612              9096   0 svchost
+    204      12     2088      10620              9808   0 svchost
+    356      20     3700      11996             11700   0 svchost
+    194      15     6560       8756             11744   0 svchost
+    239      13     2600       9116             13304   0 svchost
+    143      10     1772       6764             13676   0 svchost
+   4583       0      168      15032                 4   0 System
+    563      38     9828      21932       6.94   1816   1 taskhostw
+    347      21     6944      17696       0.06  11656   1 taskhostw
+    355     127     5212      15532              3780   0 TeamViewer_Service
+    171      15     3284       8892       1.77   2592   1 TSVNCache
+    150      13     2604       8484       0.14  11472   1 TSVNCache
+    185      12     3944       2952       0.05  12540   1 TXPlatform
+    170      15     3040       1380       0.09   8236   1 uaclauncher
+    120       7     1672       6440              4828   0 unsecapp
+    116       7     1392       6668       0.06  14264   1 unsecapp
+    182      29     3172       7672              2764   0 UoipService
+    214      10     1964       7176       0.11   8876   1 WavesSvc64
+    100       8     2776       5952              3356   0 WavesSysSvc64
+    140      10     1404       5852               688   0 wininit
+    226      10     2376       9336               764   1 winlogon
+    995      54    23852      53628       0.38   8124   1 WinStore.App
+    938      68   174924     175828     204.05  11060   1 Wireshark
+    411      20     5052      14256              4656   0 wlanext
+    160      11     1692       8120              2260   0 WmiApSrv
+    511      31    32708      46672              5056   0 WmiPrvSE
+    240      10     7024      10864              6148   0 WmiPrvSE
+    976      26    18652      29692              6604   0 WmiPrvSE
+    294      15    23556      11776             13988   0 WmiPrvSE
+   1501      91   241508     250688      71.02    576   1 wps
+   1206      61    33756      46116      83.34  10928   1 wpscenter
+   2545     117    78012      14888      82.33   8604   1 wpscloudsvr
+    296      56    66648        436       4.11  12668   1 wpsrenderer
+    327      19     5160      21004              3508   0 ZeroConfigService
